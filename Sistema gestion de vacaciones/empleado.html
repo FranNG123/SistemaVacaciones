@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Vacaciones</title>
+    <link rel="stylesheet" href="./css/stylesempleados.css">
+</head>
+<body>
+    <a href="login.html" id="custom-button">Cerrar sesión</a>
+    <h1>Solicitud de Vacaciones</h1>
+    <section class="crud">
+      <article>
+        <h2 class="crud-title">Estado de solicitudes</h2>
+      </article>
+      <article class="data-request">
+        <table class="crud-table" id="users-table">
+          <thead>
+            <tr>
+              <th>Estado</th>
+              <th>Fecha de solicitud</th>
+              <th>Desde</th>
+              <th>Regreso</th>
+              <th>Días</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </article>
+    <h3>
+        <div class="calendar">
+            <p>Calendario de Vacaciones</p>
+            <div class="header">
+                <button id="prevMonth" class="nav-button">&lt;</button>
+                <h1 id="monthYear"></h1>
+                <button id="nextMonth" class="nav-button">&gt;</button>
+            </div>
+            <div class="days">
+                <div class="day">Dom</div>
+                <div class="day">Lun</div>
+                <div class="day">Mar</div>
+                <div class="day">Mié</div>
+                <div class="day">Jue</div>
+                <div class="day">Vie</div>
+                <div class="day">Sáb</div>
+            </div>
+            <div class="grid" id="calendarGrid"></div>
+        </div>
+    </h3>
+    <button class="select-v">Seleccionar vacaciones</button>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const calendarGrid = document.getElementById("calendarGrid");
+    const monthYear = document.getElementById("monthYear");
+    const prevMonthButton = document.getElementById("prevMonth");
+    const nextMonthButton = document.getElementById("nextMonth");
+
+    let currentDate = new Date();
+    let selectedDates = [];
+
+    function updateCalendar() {
+        const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+        const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+        const startingDay = firstDayOfMonth.getDay();
+        const monthName = new Intl.DateTimeFormat('es-ES', { month: 'long', year: 'numeric' }).format(currentDate);
+        monthYear.textContent = monthName;
+        let calendarHTML = "";
+        for (let i = 0; i < startingDay; i++) {
+            calendarHTML += `<div class="cell"></div>`;
+        }
+        for (let i = 1; i <= daysInMonth; i++) {
+            let cellClass = "cell";
+
+            if (selectedDates.includes(i)) {
+                cellClass += " selected";
+            }
+
+            calendarHTML += `<div class="${cellClass}" data-day="${i}">${i}</div>`;
+        }
+        calendarGrid.innerHTML = calendarHTML;
+        const cells = document.querySelectorAll(".cell");
+        cells.forEach(cell => {
+            cell.addEventListener("click", toggleDateSelection);
+        });
+    }
+    function toggleDateSelection(event) {
+        const clickedCell = event.target;
+        const day = parseInt(clickedCell.getAttribute("data-day"));
+        if (!isNaN(day)) {
+            if (selectedDates.includes(day)) {
+                selectedDates = selectedDates.filter(d => d !== day);
+            } else {
+                selectedDates.push(day);
+            }
+
+            updateCalendar();
+        }
+    }
+    prevMonthButton.addEventListener("click", () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        updateCalendar();
+    });
+    nextMonthButton.addEventListener("click", () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        updateCalendar();
+    });
+    updateCalendar();
+});
+    </script>
+</body>
+</html>

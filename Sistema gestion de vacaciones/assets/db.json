@@ -1,0 +1,31 @@
+{
+  "usuarios": [
+    {
+      "username": "Admin",
+      "password": "123",
+      "rol": "Administrador",
+      "id": 1
+    },
+    {
+      "username": "Empleado",
+      "password": "123456",
+      "rol": "Empleado",
+      "id": 2
+    },
+    {
+      "username": "RRHH",
+      "password": "1234567",
+      "rol": "RRHH",
+      "id": 3
+    }
+  ],
+  "empleados": [
+    {
+      "nombre": "Juan",
+      "apellido": "Lopez",
+      "idusuario": "2",
+      "dias": "15",
+      "id": 1
+    }
+  ]
+}

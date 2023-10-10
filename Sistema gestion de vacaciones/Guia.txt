@@ -1,0 +1,7 @@
+En la terminal de Visual Studio Code ingresar:
+npm install -g json-server (solo la primera vez, instala el servidor)
+json-server -w -p 4444 assets/db.json (abre el servidor)
+Si no funciona, ejecutar como administrador Windows PowerShell y ingresar:
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser, pide confirmación escribir "S" y dar ENTER.
+En una ventana de Chrome ingresar este link:
+http://localhost:4444/usuarios (muestra la lista de usuarios registrados)

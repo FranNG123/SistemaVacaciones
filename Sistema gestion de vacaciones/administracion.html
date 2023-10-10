@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="CRUD CON API AXIOS">
+   <title>Administración ABMC</title>
+   <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <a href="login.html" id="custom-button">Cerrar sesión</a>
+  <h1>Administración ABMC</h1>
+  <section class="crud">
+    <article>
+      <h2 class="crud-title">Perfiles</h2>
+      <form class="crud-form" id="users-form">
+        <input class="input_label" type="text" name="username" placeholder="Nombre de usuario" required>
+        <input class="input_label" type="text" name="password" placeholder="Contraseña" required>
+        <select type="rol" class="input_label" id="rol" required>
+          <option value="Administrador">Administrador</option>
+          <option value="Empleado">Empleado</option>
+          <option value="RRHH">RRHH</option>
+        </select>
+        <input class="input_submit" type="submit" value="Agregar/Editar">
+        <input type="hidden" name="id">
+      </form>
+    </article>
+    <article class="data-request">
+      <table class="crud-table" id="users-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Contraseña</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </article>
+  </section>
+
+  <section class="crud">
+    <article>
+      <h3 class="crud-titleE">Empleados</h3>
+      <form class="crud-form" id="employees-form">
+        <input class="input_label" type="text" name="nombre" placeholder="Nombre" required>
+        <input class="input_label" type="text" name="apellido" placeholder="Apellido" required>
+        <input class="input_label" type="text" name="idusuario" placeholder="IdUsuario" required>
+        <input class="input_label" type="text" name="dias" placeholder="Días de vacaciones" required>
+        <input class="input_submit" type="submit" value="Agregar/Editar">
+        <input type="hidden" name="id">
+      </form>
+    </article>
+    <article class="data-request">
+      <table class="crud-table" id="employees-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>IdUsuario</th>
+            <th>Días</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </article>
+  </section>
+
+  <template id="crud-template">
+    <tr>
+      <td class="id"></td>
+      <td class="username"></td>
+      <td class="password"></td>
+      <td class="rol"></td>
+      <td>
+        <button class="edit-user">Editar</button>
+        <button class="delete-user">Eliminar</button>
+      </td>
+    </tr>
+  </template>
+
+  <template id="employee-template">
+    <tr>
+      <td class="id"></td>
+      <td class="nombre"></td>
+      <td class="apellido"></td>
+      <td class="idusuario-employee"></td>
+      <td class="dias"></td>
+      <td>
+        <button class="edit-employee">Editar</button>
+        <button class="delete-employee">Eliminar</button>
+      </td>
+    </tr>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./js/script.js"></script>
+  <footer>
+ </footer>
+</body>
+</html>

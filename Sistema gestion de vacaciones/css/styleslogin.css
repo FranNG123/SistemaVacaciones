@@ -1,0 +1,127 @@
+body {
+    background-image: url("/assets/img/Fondo.png");
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: transparent;
+    text-align: center;
+    padding: 20px;
+}
+
+h2 {
+    color: orange;
+    margin: 0;
+    font-size: 2.5em;
+}
+
+h1 {
+    color: #61C9A8;
+    text-transform: capitalize;
+    font-size: 1.8em; 
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: solid 1px orange;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px; 
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .login-container {
+        width: 90%; 
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h1 {
+        font-size: 1.5em; 
+    }
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    color: lightskyblue;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    outline: none;
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid orange;
+}
+
+select[type="rol"] {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    outline: none;
+}
+
+select[type="rol"]:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid orange;
+}
+
+select[type="rol"]:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border: solid 1.8px orange;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: transparent;
+}
+
+button:active {
+    background-color: transparent;
+    border: solid 1.8px orange;
+    color: orange;
+}
